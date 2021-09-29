@@ -3,6 +3,8 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+app.use(express.json())
+
 app.get("/", function (req, res) {
     var data = new Date();
     var dia = data.getDate();
@@ -21,6 +23,14 @@ app.get("/SaoPaulo", function (req, res) {
     var data = new Date();
     data = data.toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo' });
     res.send(JSON.stringify(data));
+});
+
+app.post("/post", function (req, res) {
+    var dados = {
+        body: req.body,
+        details: "test"
+    }
+    res.send(JSON.stringify(dados));
 });
 
 app.listen(port, () => {
