@@ -26,9 +26,14 @@ app.get("/SaoPaulo", function (req, res) {
 });
 
 app.post("/post", function (req, res) {
+
+    var data = new Date();
+    data = data.toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo' });
+
     var dados = {
         body: req.body,
-        details: "test"
+        details: "test",
+        date: data
     }
     res.send(JSON.stringify(dados));
 });
