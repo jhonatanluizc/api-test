@@ -17,6 +17,12 @@ app.get("/", function (req, res) {
     res.send(JSON.stringify(dataAtual));
 });
 
+app.get("/SaoPaulo", function (req, res) {
+    var data = new Date();
+    data = data.toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo' });
+    res.send(JSON.stringify(data));
+});
+
 app.listen(port, () => {
     console.info("Aplicação rodando em http://localhost:3000");
 });
